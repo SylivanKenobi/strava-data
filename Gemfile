@@ -1,4 +1,3 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "rake", "~> 12.0"
-gem "fit4ruby"
+gem 'influxdb'

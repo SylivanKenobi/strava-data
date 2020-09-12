@@ -6,3 +6,4 @@
 /pkg/
 /spec/reports/
 /tmp/
+assets/secrets.yml
