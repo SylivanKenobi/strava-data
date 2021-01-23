@@ -9,8 +9,8 @@ Datascraper and Visualizer for Strava with Ruby, Grafana and Influx.
 
 ### Start app:
 
-`$ bundle install`
-`$ docker-compose up -d`
-`$ ruby analyzer.rb`
+* `$ bundle install`
+* `$ docker-compose up -d`
+* `$ ruby analyzer.rb`
 
 Visit Grafana on http://localhost:3000.

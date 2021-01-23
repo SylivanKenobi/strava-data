@@ -1,9 +1,6 @@
-FROM ruby:2.7-alpine
+FROM ruby:2.7
 
-COPY analyzer.rb .
-COPY Gemfile .
-COPY strava/activities.csv .
-
+COPY . .
 RUN bundle install
 
 CMD ["ruby", "analyzer.rb"]
