@@ -9,25 +9,35 @@ require_relative 'lib/secrets'
 scheduler = Rufus::Scheduler.new
 
 $influxdb = InfluxDB::Client.new host: Secrets.get('DB_HOST'), database: Secrets.get('DB_DATABASE'), username: Secrets.get('DB_USERNAME'), password: Secrets.get('DB_PW')
+# $influxdb.delete_database('test')
 $influxdb.create_database('test')
 
 def send_data(data)
   data.each do |d|
     value = {
-      values: { distance: d['distance'], duration: d['moving_time'], avg_speed: d['average_speed'].to_i * 3.6, max_speed: d['max_speed'].to_i * 3.6, elevation: d['total_elevation_gain']},
+      values: { distance: d['distance'].to_f, duration: d['moving_time'].to_f, avg_speed: d['average_speed'].to_i * 3.6, max_speed: d['max_speed'].to_i * 3.6, elevation: d['total_elevation_gain'].to_f, id: d['id']},
       timestamp: DateTime.iso8601(d['start_date_local']).to_time.to_i
     }
     $influxdb.write_point('activities', value)
+  rescue => e
+    pp e
+    pp value
   end
 end
 
 def get_data(token)
-  url = 'https://www.strava.com/api/v3/athlete/activities'
-  response = RestClient::Request.execute(
-      method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
-    )
-  json = JSON.parse(response.body)
-  json
+  data = []
+  i = 0
+  loop do
+    i += 1
+    url = "https://www.strava.com/api/v3/athlete/activities?page=#{i}&per_page=200"
+    response = RestClient::Request.execute(
+        method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
+      )
+      break if JSON.parse(response.body).nil? || JSON.parse(response.body).empty?
+      data = data + JSON.parse(response.body)
+  end
+  data
 end
 
 
@@ -59,13 +69,25 @@ def token_expired?
   @bearer_token.nil? || Time.at(@token_response['expires_at'].to_i) < Time.now
 end
 
+def write_to_file(data)
+  File.open("assets/data.json", "w") { |f| f.write data.to_json }
+end
+
+def get_data_from_file
+  data = File.read("assets/data.json")
+  pp JSON.parse(data).length
+  JSON.parse(data)
+end
+
 
 scheduler.cron '0 */1 * * *', :first_in => 0 do
   pp 'fetching new token'
   token = get_token
   pp 'fetching new data'
   data = get_data(token)
+  # data = get_data_from_file
   pp 'sending data to influx'
+  # write_to_file(data)
   send_data(data)
   pp 'sent'
   pp 'see ya in an hour'
