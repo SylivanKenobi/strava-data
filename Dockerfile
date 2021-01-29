@@ -6,8 +6,8 @@ RUN bundle config --global frozen 1 && \
 
 COPY . .
 
-USER 1001
-
 RUN bundle install
+
+USER 1001
 
 CMD ["ruby", "analyzer.rb"]
