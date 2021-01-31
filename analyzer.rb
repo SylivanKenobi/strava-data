@@ -15,7 +15,7 @@ $influxdb.create_database('test')
 def send_data(data)
   data.each do |d|
     value = {
-      values: { distance: d['distance'].to_f, duration: d['moving_time'].to_f, avg_speed: d['average_speed'].to_i * 3.6, max_speed: d['max_speed'].to_i * 3.6, elevation: d['total_elevation_gain'].to_f, id: d['id']},
+      values: { distance: d['distance'].to_f, duration: d['moving_time'].to_f, avg_speed: d['average_speed'].to_i * 3.6, max_speed: d['max_speed'].to_i * 3.6, elevation: d['total_elevation_gain'].to_f, id: d['id'], type: d['type']},
       timestamp: DateTime.iso8601(d['start_date_local']).to_time.to_i
     }
     $influxdb.write_point('activities', value)

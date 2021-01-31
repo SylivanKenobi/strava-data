@@ -1,589 +1,599 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": "-- Grafana --",
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations & Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
-    "editable": true,
-    "gnetId": null,
-    "graphTooltip": 0,
-    "id": 3,
-    "links": [],
-    "panels": [
+  "annotations": {
+    "list": [
       {
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-BlYlRd"
-            },
-            "custom": {},
-            "mappings": [],
-            "max": 140000,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "lengthm"
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 4,
-          "x": 0,
-          "y": 0
-        },
-        "id": 10,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "max"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "7.3.7",
-        "targets": [
-          {
-            "groupBy": [],
-            "measurement": "activities",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "distance"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "max"
-                }
-              ]
-            ],
-            "tags": []
-          }
-        ],
-        "timeFrom": null,
-        "timeShift": null,
-        "title": "Longest Ride",
-        "type": "stat"
-      },
-      {
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {},
-            "decimals": 3,
-            "mappings": [],
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            },
-            "unit": "lengthm"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 5,
-          "x": 4,
-          "y": 0
-        },
-        "id": 18,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "value"
-        },
-        "pluginVersion": "7.3.7",
-        "targets": [
-          {
-            "groupBy": [],
-            "measurement": "activities",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter",
-            "rawQuery": false,
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "distance"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "sum"
-                }
-              ]
-            ],
-            "tags": []
-          }
-        ],
-        "timeFrom": null,
-        "timeShift": null,
-        "title": "Totaldistance",
-        "type": "stat"
-      },
-      {
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-GrYlRd"
-            },
-            "custom": {},
-            "decimals": 2,
-            "mappings": [],
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "s"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 5,
-          "x": 9,
-          "y": 0
-        },
-        "id": 16,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "mean"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "7.3.7",
-        "targets": [
-          {
-            "groupBy": [],
-            "measurement": "activities",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "duration"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "sum"
-                }
-              ]
-            ],
-            "tags": []
-          }
-        ],
-        "timeFrom": null,
-        "timeShift": null,
-        "title": "Totaltime",
-        "type": "stat"
-      },
-      {
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-BlYlRd"
-            },
-            "custom": {},
-            "mappings": [],
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 120000
-                }
-              ]
-            },
-            "unit": "lengthm"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 5,
-          "x": 14,
-          "y": 0
-        },
-        "id": 4,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "mean"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "7.3.7",
-        "targets": [
-          {
-            "groupBy": [
+          "custom": {},
+          "mappings": [],
+          "max": 140000,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
-                "params": [
-                  "7d"
-                ],
-                "type": "time"
+                "color": "green",
+                "value": null
               },
               {
-                "params": [
-                  "previous"
-                ],
-                "type": "fill"
+                "color": "red",
+                "value": 80
               }
-            ],
-            "measurement": "activities",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "distance"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "mean"
-                }
-              ]
-            ],
-            "tags": []
-          }
-        ],
-        "timeFrom": null,
-        "timeShift": null,
-        "title": "7  avg distance",
-        "type": "stat"
+            ]
+          },
+          "unit": "lengthm"
+        },
+        "overrides": []
       },
-      {
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "continuous-BlYlRd"
-            },
-            "custom": {},
-            "mappings": [],
-            "max": 150,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 100
-                }
-              ]
-            },
-            "unit": "velocitykmh"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 5,
-          "w": 5,
-          "x": 19,
-          "y": 0
-        },
-        "id": 8,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": true
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "7.3.7",
-        "targets": [
-          {
-            "groupBy": [],
-            "measurement": "activities",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "time_series",
-            "select": [
-              [
-                {
-                  "params": [
-                    "max_speed"
-                  ],
-                  "type": "field"
-                },
-                {
-                  "params": [],
-                  "type": "max"
-                }
-              ]
-            ],
-            "tags": []
-          }
-        ],
-        "timeFrom": null,
-        "timeShift": null,
-        "title": "Max Speed",
-        "type": "stat"
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 0
       },
-      {
-        "aliasColors": {
-          "distance": "dark-orange",
-          "duration": "dark-green"
-        },
-        "bars": true,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": null,
-        "fieldConfig": {
-          "defaults": {
-            "custom": {
-              "align": null,
-              "filterable": false
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            }
-          },
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 12,
-          "w": 24,
-          "x": 0,
-          "y": 5
-        },
-        "hiddenSeries": false,
-        "id": 2,
-        "legend": {
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "show": true,
-          "total": false,
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
           "values": false
         },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null as zero",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.3.7",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
-          {
-            "alias": "duration",
-            "yaxis": 2
-          }
-        ],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "groupBy": [],
-            "measurement": "activities",
-            "orderByTime": "ASC",
-            "policy": "default",
-            "refId": "A",
-            "resultFormat": "table",
-            "select": [
-              [
-                {
-                  "params": [
-                    "distance"
-                  ],
-                  "type": "field"
-                }
-              ],
-              [
-                {
-                  "params": [
-                    "duration"
-                  ],
-                  "type": "field"
-                }
-              ]
-            ],
-            "tags": []
-          }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "Rides",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "format": "lengthm",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true
-          },
-          {
-            "format": "s",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": "0",
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT max(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": []
         }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Longest Ride",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {},
+          "decimals": 3,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "lengthm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 4,
+        "y": 0
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Totaldistance",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 9,
+        "y": 0
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT sum(\"duration\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "duration"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Totaltime",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "custom": {},
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 120000
+              }
+            ]
+          },
+          "unit": "lengthm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 14,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "7d"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "previous"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "7  avg distance",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "custom": {},
+          "mappings": [],
+          "max": 150,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "velocitykmh"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 5,
+        "x": 19,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT max(\"max_speed\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "max_speed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Max Speed",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "distance": "dark-orange",
+        "duration": "dark-green"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.7",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "duration",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "groupBy": [],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"distance\", \"duration\" FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "duration"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Rides",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "lengthm",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
       }
-    ],
-    "refresh": false,
-    "schemaVersion": 26,
-    "style": "dark",
-    "tags": [],
-    "templating": {
-      "list": []
-    },
-    "time": {
-      "from": "2015-12-31T23:00:00.000Z",
-      "to": "2021-12-31T22:59:59.000Z"
-    },
-    "timepicker": {},
-    "timezone": "",
-    "title": "Rides",
-    "uid": "yearly",
-    "version": 2
-  }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2015-12-31T23:00:00.000Z",
+    "to": "2021-12-31T22:59:59.000Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Rides",
+  "uid": "yearly",
+  "version": 2
+}

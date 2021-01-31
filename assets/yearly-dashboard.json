@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 5,
   "links": [],
   "panels": [
     {
@@ -74,6 +74,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT max(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -154,6 +156,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT max(\"max_speed\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -246,6 +250,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT sum(\"duration\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -338,6 +344,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -429,6 +437,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT count(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -507,6 +517,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -608,6 +620,8 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT \"distance\", \"duration\" FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "table",
           "select": [
@@ -688,5 +702,5 @@
   "timezone": "",
   "title": "Ausfahrten",
   "uid": "gLfzVXfMz",
-  "version": 4
+  "version": 2
 }
