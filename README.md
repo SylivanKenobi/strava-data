@@ -9,6 +9,7 @@ Datascraper and Visualizer for Strava with Ruby, Grafana and Influx.
 
 ### Start app:
 
+* create file `assets/secrets.yml` with the needed secrets
 * `$ bundle install`
 * `$ docker-compose up -d`
 * `$ ruby analyzer.rb`

@@ -2,13 +2,18 @@ version: '3'
 
 services:
   grafana:
-    image: grafana/grafana:latest
+  # docker build . -f grafana.Dockerfile -t grafana:local
+    image: grafana:local
     container_name: grafana
     ports:
       - "3000:3000"
     environment:
       GF_INSTALL_PLUGINS: vonage-status-panel, grafana-clock-panel, natel-plotly-panel, petrslavotinek-carpetplot-panel, michaeldmoore-multistat-panel
       GF_PANELS_DISABLE_SANITIZE_HTML: 'true'
+      INFLUXDB_DB: test
+      INFLUXDB_USER: test
+      INFLUXDB_USER_PASSWORD: test
+      INFLUX_HOST: influx
     user: "472"
     links:
       - influx
