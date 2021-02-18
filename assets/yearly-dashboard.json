@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 5,
+  "iteration": 1613633029755,
   "links": [],
   "panels": [
     {
@@ -65,16 +65,17 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "query": "SELECT max(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -147,16 +148,17 @@
           "fields": "",
           "values": true
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(\"max_speed\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "query": "SELECT max(\"max_speed\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -228,9 +230,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "targets": [
         {
           "groupBy": [
@@ -250,7 +253,7 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(\"duration\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "query": "SELECT sum(\"duration\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time(7d) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -322,9 +325,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "targets": [
         {
           "groupBy": [
@@ -344,7 +348,7 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "query": "SELECT mean(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time(7d) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -415,9 +419,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "targets": [
         {
           "groupBy": [
@@ -437,7 +442,7 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT count(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide') GROUP BY time(7d) fill(previous)",
+          "query": "SELECT count(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time(7d) fill(previous)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -508,16 +513,17 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -554,23 +560,10 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -601,7 +594,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.7",
+      "pluginVersion": "7.4.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -620,7 +613,7 @@
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"distance\", \"duration\" FROM \"activities\" WHERE $timeFilter AND (type = 'EBikeRide' OR type = 'Ride' OR type = 'VirtualRide')",
+          "query": "SELECT \"distance\", \"duration\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "table",
@@ -688,11 +681,86 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": [
+            "Ride",
+            "EBikeRide",
+            "Hike",
+            "VirtualRide",
+            "Walk",
+            "Run"
+          ],
+          "value": [
+            "Ride",
+            "EBikeRide",
+            "Hike",
+            "VirtualRide",
+            "Walk",
+            "Run"
+          ]
+        },
+        "datasource": null,
+        "definition": "select type from activities",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Activity Type",
+        "multi": true,
+        "name": "type",
+        "options": [
+          {
+            "selected": true,
+            "text": "Ride",
+            "value": "Ride"
+          },
+          {
+            "selected": true,
+            "text": "EBikeRide",
+            "value": "EBikeRide"
+          },
+          {
+            "selected": true,
+            "text": "Hike",
+            "value": "Hike"
+          },
+          {
+            "selected": true,
+            "text": "VirtualRide",
+            "value": "VirtualRide"
+          },
+          {
+            "selected": true,
+            "text": "Walk",
+            "value": "Walk"
+          },
+          {
+            "selected": true,
+            "text": "Run",
+            "value": "Run"
+          }
+        ],
+        "query": "select type from activities",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "2020-12-31T23:00:00.000Z",
@@ -700,7 +768,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Ausfahrten",
-  "uid": "gLfzVXfMz",
-  "version": 2
+  "title": "Yearly",
+  "uid": "yearly",
+  "version": 1
 }
