@@ -8,7 +8,6 @@ services:
     ports:
       - "3000:3000"
     environment:
-      GF_INSTALL_PLUGINS: vonage-status-panel, grafana-clock-panel, natel-plotly-panel, petrslavotinek-carpetplot-panel, michaeldmoore-multistat-panel
       GF_PANELS_DISABLE_SANITIZE_HTML: 'true'
       INFLUXDB_DB: test
       INFLUXDB_USER: test

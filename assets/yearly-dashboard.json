@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1613633029755,
+  "iteration": 1614027585468,
   "links": [],
   "panels": [
     {
@@ -68,14 +68,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"distance\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -143,22 +143,22 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "max"
           ],
           "fields": "",
-          "values": true
+          "values": false
         },
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(\"max_speed\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"max_speed\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -233,7 +233,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [
@@ -328,7 +328,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [
@@ -422,7 +422,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [
@@ -469,6 +469,105 @@
       "type": "stat"
     },
     {
+      "config": {
+        "animationDuration": 0,
+        "cellPadding": "4",
+        "cellRadius": 0,
+        "cellSize": "16",
+        "colLimit": "",
+        "displayLegend": true,
+        "domain": "month",
+        "domainGutter": 2,
+        "hoverDecimals": 2,
+        "hoverUnitFormat": "short",
+        "itemName": [
+          "short",
+          "short"
+        ],
+        "label": {
+          "position": "bottom",
+          "rotate": "null",
+          "width": 60
+        },
+        "legendColors": {
+          "base": "transparent",
+          "empty": "#222",
+          "max": "rgb(13, 54, 6)",
+          "min": "rgb(152, 179, 146)"
+        },
+        "legendStr": "",
+        "legendTitleFormat": {
+          "inner": {},
+          "lower": {},
+          "upper": {}
+        },
+        "rowLimit": null,
+        "subDomain": "day",
+        "subDomainTitleFormat": {
+          "empty": "{date}",
+          "filled": {}
+        },
+        "verticalOrientation": false
+      },
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 20,
+      "pluginVersion": "7.4.1",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Panel Title",
+      "type": "neocat-cal-heatmap-panel"
+    },
+    {
       "datasource": null,
       "fieldConfig": {
         "defaults": {
@@ -500,7 +599,7 @@
         "h": 2,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 12
       },
       "id": 18,
       "options": {
@@ -516,7 +615,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
@@ -574,7 +673,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 2,
@@ -594,7 +693,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -764,7 +863,7 @@
   },
   "time": {
     "from": "2020-12-31T23:00:00.000Z",
-    "to": "2021-12-31T22:59:59.000Z"
+    "to": "2021-12-31T23:00:00.000Z"
   },
   "timepicker": {},
   "timezone": "",

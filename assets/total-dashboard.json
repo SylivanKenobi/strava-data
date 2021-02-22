@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1613634633940,
+  "iteration": 1614026168835,
   "links": [],
   "panels": [
     {
@@ -69,14 +68,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"distance\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -107,7 +106,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "custom": {},
           "decimals": 3,
@@ -140,7 +139,7 @@
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "sum"
           ],
           "fields": "",
           "values": false
@@ -148,14 +147,14 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"distance\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -223,7 +222,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "sum"
           ],
           "fields": "",
           "values": false
@@ -231,14 +230,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT sum(\"duration\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"duration\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -313,7 +312,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [
@@ -401,22 +400,23 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "max"
           ],
           "fields": "",
-          "values": true
+          "limit": 200,
+          "values": false
         },
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.4.2",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT max(\"max_speed\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"max_speed\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
