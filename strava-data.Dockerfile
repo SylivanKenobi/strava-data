@@ -1,8 +1,7 @@
-FROM quay.io/aptible/ruby:2.7-debian
+FROM ruby:2.7
 
 RUN bundle config --global frozen 1 && \
-    apt-get update && \
-    apt-get upgrade -yq
+    apk upgrade --available && sync
 
 COPY . .
 
