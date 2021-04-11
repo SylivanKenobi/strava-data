@@ -125,8 +125,8 @@ scheduler.cron '0 */1 * * *', :first_in => 0 do
   data['segments'] = get_segments(token)
   # data = get_data_from_file
   pp 'sending data to influx'
-  write_to_file(data)
   send_data(data)
+  # write_to_file(data)
   pp 'sent'
   pp 'see ya in an hour'
 end
