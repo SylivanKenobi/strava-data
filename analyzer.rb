@@ -12,8 +12,8 @@ $influxdb = InfluxDB::Client.new host: Secrets.get('DB_HOST'), database: Secrets
 # $influxdb.delete_database('test')
 $influxdb.create_database('test')
 
-def send_data(data)
-  data['activities'].each do |d|
+def send_activities(activities)
+  activities.each do |d|
     value = {
       values: { 
         id: d['id'],
@@ -31,51 +31,36 @@ def send_data(data)
     }
     $influxdb.write_point('activities', value)
   rescue => e
-    pp e
-    pp value
+    pp "#{e.message} #{value}"
   end
-  data['segments'].each do |d|
+end
+
+def send_segments(segments)
+  segments.each do |d|
     value = {
       values: { name: d['name'], prtime: d['pr_time']},
       timestamp: Time.now.to_i
     }
     $influxdb.write_point('segments', value)
   rescue => e
-    pp e
-    pp value
+    pp "#{e.message} #{value}"
   end
 end
 
-def get_activities(token)
+def get_data(path, token)
   data = []
   i = 0
   loop do
     i += 1
-    url = "https://www.strava.com/api/v3/athlete/activities?page=#{i}&per_page=200"
+    url = "https://www.strava.com/api/v3/#{path}?page=#{i}&per_page=200"
     response = RestClient::Request.execute(
         method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
-      )
-      break if JSON.parse(response.body).nil? || JSON.parse(response.body).empty?
-      data = data + JSON.parse(response.body)
+    )
+    break if JSON.parse(response.body).nil? || JSON.parse(response.body).empty?
+    data = data + JSON.parse(response.body)
   end
   data
 end
-
-def get_segments(token)
-  data = []
-  i = 0
-  loop do
-    i += 1
-    url = "https://www.strava.com/api/v3/segments/starred?page=#{i}&per_page=200"
-    response = RestClient::Request.execute(
-        method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
-      )
-      break if JSON.parse(response.body).nil? || JSON.parse(response.body).empty?
-      data = data + JSON.parse(response.body)
-  end
-  data
-end
-
 
 def get_token
   if token_expired?
@@ -87,9 +72,7 @@ def get_token
       "grant_type" => "refresh_token",
       "refresh_token" => Secrets.get('REFRESH_TOKEN')
     )
-    
     req_options = { use_ssl: uri.scheme == "https" }
-    
     response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
@@ -120,12 +103,12 @@ scheduler.cron '0 */1 * * *', :first_in => 0 do
   pp 'fetching new token'
   token = get_token
   pp 'fetching new data'
-  data = {}
-  data['activities'] = get_activities(token)
-  data['segments'] = get_segments(token)
+  activities = get_data('athlete/activities',token)
+  segments = get_data('segments/starred',token)
   # data = get_data_from_file
   pp 'sending data to influx'
-  send_data(data)
+  send_activities(activities)
+  send_segments(segments)
   # write_to_file(data)
   pp 'sent'
   pp 'see ya in an hour'
