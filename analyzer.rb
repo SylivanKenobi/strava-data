@@ -27,6 +27,10 @@ def send_activities(activities)
         average_watts: d['average_watts'].to_f,
         weighted_average_watts: d['weighted_average_watts'].to_f
       },
+      tags: {
+        year: DateTime.iso8601(d['start_date_local']).year,
+        type: d['type']
+      },
       timestamp: DateTime.iso8601(d['start_date_local']).to_time.to_i
     }
     $influxdb.write_point('activities', value)
