@@ -15,7 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1619031518912,
+  "id": 2,
+  "iteration": 1619637433332,
   "links": [],
   "panels": [
     {
@@ -409,6 +410,7 @@
             "mode": "thresholds"
           },
           "mappings": [],
+          "noValue": "0",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1055,90 +1057,6 @@
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "palette-classic"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "lengthm"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 3,
-            "x": 0,
-            "y": 26
-          },
-          "id": 27897898,
-          "options": {
-            "displayMode": "gradient",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showUnfilled": true,
-            "text": {}
-          },
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "alias": "$tag_year",
-              "groupBy": [
-                {
-                  "params": [
-                    "year"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "activities",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)  GROUP BY \"year\"",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "distance"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "title": "Panel Title",
-          "type": "bargauge"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
                 "mode": "thresholds"
               },
               "decimals": 3,
@@ -1160,7 +1078,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 3,
+            "x": 0,
             "y": 26
           },
           "id": 18567,
@@ -1242,7 +1160,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 9,
+            "x": 6,
             "y": 26
           },
           "id": 16786786,
@@ -1321,7 +1239,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 15,
+            "x": 12,
             "y": 26
           },
           "id": 27897890,
@@ -1383,8 +1301,8 @@
           },
           "gridPos": {
             "h": 10,
-            "w": 3,
-            "x": 21,
+            "w": 6,
+            "x": 18,
             "y": 26
           },
           "id": 24234,
@@ -1471,7 +1389,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 3,
+            "x": 0,
             "y": 31
           },
           "id": 4567567,
@@ -1566,7 +1484,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 9,
+            "x": 6,
             "y": 31
           },
           "id": 14564560,
@@ -1648,7 +1566,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 15,
+            "x": 12,
             "y": 31
           },
           "id": 6786788,
@@ -1702,6 +1620,247 @@
           "type": "stat"
         },
         {
+          "aliasColors": {
+            "cumulative_sum_1": "super-light-blue"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "unit": "lengthm"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "duration"
+                },
+                "properties": [
+                  {
+                    "id": "unit",
+                    "value": "s"
+                  }
+                ]
+              }
+            ]
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 10,
+            "w": 21,
+            "x": 0,
+            "y": 36
+          },
+          "hiddenSeries": false,
+          "id": 3454562,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.4",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "cumulative_sum_1",
+              "yaxis": 2
+            },
+            {
+              "alias": "elevation",
+              "yaxis": 2
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "groupBy": [
+                {
+                  "params": [
+                    "year"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "activities",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT cumulative_sum(\"distance\") as distance, cumulative_sum(\"elevation\") as elevation FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)  GROUP BY \"year\"",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "table",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "distance"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "cumulative_sum"
+                  }
+                ],
+                [
+                  {
+                    "params": [
+                      "elevation"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "cumulative_sum"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Yearly Distance Progress",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "lengthm",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "lengthm",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "lengthm"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 3,
+            "x": 21,
+            "y": 36
+          },
+          "id": 27897898,
+          "options": {
+            "displayMode": "gradient",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "text": {}
+          },
+          "pluginVersion": "7.5.4",
+          "targets": [
+            {
+              "alias": "$tag_year",
+              "groupBy": [
+                {
+                  "params": [
+                    "year"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "activities",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)  GROUP BY \"year\"",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "distance"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "title": "Yearly Distances",
+          "type": "bargauge"
+        },
+        {
           "config": {
             "animationDuration": 0,
             "cellPadding": "4",
@@ -1751,7 +1910,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 36
+            "y": 46
           },
           "id": 24564560,
           "pluginVersion": "7.4.1",
@@ -1796,153 +1955,8 @@
             }
           ],
           "timeFrom": null,
-          "title": "Panel Title",
+          "title": "Activity Heatmap",
           "type": "neocat-cal-heatmap-panel"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "bars",
-                "fillOpacity": 33,
-                "gradientMode": "opacity",
-                "hideFrom": {
-                  "graph": false,
-                  "legend": false,
-                  "tooltip": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "never",
-                "spanNulls": false
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "lengthm"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "distance"
-                },
-                "properties": [
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "dark-orange",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "duration"
-                },
-                "properties": [
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "dark-green",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "duration"
-                },
-                "properties": [
-                  {
-                    "id": "unit",
-                    "value": "s"
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 24,
-            "x": 0,
-            "y": 43
-          },
-          "id": 3454562,
-          "options": {
-            "graph": {},
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom"
-            },
-            "tooltipOptions": {
-              "mode": "single"
-            }
-          },
-          "pluginVersion": "7.4.2",
-          "targets": [
-            {
-              "groupBy": [],
-              "measurement": "activities",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT \"distance\", \"duration\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "table",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "distance"
-                    ],
-                    "type": "field"
-                  }
-                ],
-                [
-                  {
-                    "params": [
-                      "duration"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Rides",
-          "type": "timeseries"
         }
       ],
       "title": "Overall",
