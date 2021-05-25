@@ -9,7 +9,7 @@ require_relative 'lib/secrets'
 scheduler = Rufus::Scheduler.new
 
 $influxdb = InfluxDB::Client.new host: Secrets.get('DB_HOST'), database: Secrets.get('DB_DATABASE'), username: Secrets.get('DB_USERNAME'), password: Secrets.get('DB_PW')
-# $influxdb.delete_database('test')
+$influxdb.delete_database('test')
 $influxdb.create_database('test')
 
 def send_activities(activities)
