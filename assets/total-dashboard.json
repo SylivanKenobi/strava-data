@@ -15,13 +15,16 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1619637433332,
+  "iteration": 1627047861089,
   "links": [],
   "panels": [
     {
       "collapsed": false,
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -80,7 +83,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -163,7 +166,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -260,7 +263,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -356,7 +359,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [
@@ -449,7 +452,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -526,7 +529,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "alias": "$tag_type",
@@ -615,7 +618,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -697,7 +700,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -752,7 +755,7 @@
               }
             ]
           },
-          "unit": "watt"
+          "unit": "lengthm"
         },
         "overrides": []
       },
@@ -778,14 +781,14 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"average_watts\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+          "query": "SELECT \"elevation\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
           "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
@@ -808,7 +811,7 @@
       ],
       "timeFrom": "now/y",
       "timeShift": null,
-      "title": "Max avg Power",
+      "title": "Max Elevation",
       "type": "stat"
     },
     {
@@ -859,7 +862,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.5.4",
+      "pluginVersion": "8.0.6",
       "targets": [
         {
           "groupBy": [],
@@ -909,7 +912,8 @@
             "hideFrom": {
               "graph": false,
               "legend": false,
-              "tooltip": false
+              "tooltip": false,
+              "viz": false
             },
             "lineInterpolation": "stepBefore",
             "lineStyle": {
@@ -921,7 +925,14 @@
               "type": "linear"
             },
             "showPoints": "always",
-            "spanNulls": false
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
           "min": 0,
@@ -1000,7 +1011,7 @@
           "displayMode": "table",
           "placement": "bottom"
         },
-        "tooltipOptions": {
+        "tooltip": {
           "mode": "single"
         }
       },
@@ -1044,6 +1055,10 @@
     {
       "collapsed": true,
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1077,7 +1092,7 @@
           },
           "gridPos": {
             "h": 5,
-            "w": 6,
+            "w": 8,
             "x": 0,
             "y": 26
           },
@@ -1097,7 +1112,7 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "groupBy": [],
@@ -1159,8 +1174,8 @@
           },
           "gridPos": {
             "h": 5,
-            "w": 6,
-            "x": 6,
+            "w": 8,
+            "x": 8,
             "y": 26
           },
           "id": 16786786,
@@ -1179,7 +1194,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "groupBy": [],
@@ -1238,8 +1253,8 @@
           },
           "gridPos": {
             "h": 5,
-            "w": 6,
-            "x": 12,
+            "w": 8,
+            "x": 16,
             "y": 26
           },
           "id": 27897890,
@@ -1258,7 +1273,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "groupBy": [],
@@ -1288,178 +1303,8 @@
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": []
-              },
-              "unit": "s"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 6,
-            "x": 18,
-            "y": 26
-          },
-          "id": 24234,
-          "options": {
-            "colorMode": "background",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "/.*/",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "groupBy": [],
-              "measurement": "segments",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT \"name\" as \"Segment\", \"prtime\" as \"PR Time\" FROM \"segments\" ",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "name"
-                    ],
-                    "type": "field"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "title": "Panel Title",
-          "transformations": [
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "Time": true
-                },
-                "indexByName": {},
-                "renameByName": {}
-              }
-            }
-          ],
-          "type": "stat"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "continuous-BlYlRd"
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 120000
-                  }
-                ]
-              },
-              "unit": "lengthm"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 5,
-            "w": 6,
-            "x": 0,
-            "y": 31
-          },
-          "id": 4567567,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "groupBy": [
-                {
-                  "params": [
-                    "7d"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "previous"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "activities",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT mean(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time(7d) fill(previous)",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "distance"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "7  avg distance",
-          "type": "stat"
-        },
-        {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "continuous-BlYlRd"
+                "fixedColor": "dark-purple",
+                "mode": "fixed"
               },
               "mappings": [],
               "max": 140000,
@@ -1484,7 +1329,7 @@
           "gridPos": {
             "h": 5,
             "w": 6,
-            "x": 6,
+            "x": 0,
             "y": 31
           },
           "id": 14564560,
@@ -1503,7 +1348,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "groupBy": [],
@@ -1541,7 +1386,103 @@
           "fieldConfig": {
             "defaults": {
               "color": {
-                "mode": "continuous-BlYlRd"
+                "fixedColor": "light-blue",
+                "mode": "fixed"
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 120000
+                  }
+                ]
+              },
+              "unit": "lengthm"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 6,
+            "x": 6,
+            "y": 31
+          },
+          "id": 4567567,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "max"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.0.6",
+          "targets": [
+            {
+              "groupBy": [
+                {
+                  "params": [
+                    "7d"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "previous"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "activities",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT \"elevation\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "distance"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Max Elevation",
+          "type": "stat"
+        },
+        {
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "fixedColor": "super-light-purple",
+                "mode": "fixed"
               },
               "mappings": [],
               "max": 150,
@@ -1586,7 +1527,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "8.0.6",
           "targets": [
             {
               "groupBy": [],
@@ -1620,6 +1561,239 @@
           "type": "stat"
         },
         {
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "watt"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 6,
+            "x": 18,
+            "y": 31
+          },
+          "id": 27897900,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "max"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.0.6",
+          "targets": [
+            {
+              "groupBy": [],
+              "measurement": "activities",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "max_watts"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "title": "Max Power",
+          "type": "stat"
+        },
+        {
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": []
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 36
+          },
+          "id": 24234,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.0.6",
+          "targets": [
+            {
+              "groupBy": [],
+              "measurement": "segments",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT \"name\" as \"Segment\", \"prtime\" as \"PR Time\" FROM \"segments\" ",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "table",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "name"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "title": "Panel Title",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {
+                  "Time": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "lengthm"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 36
+          },
+          "id": 27897898,
+          "options": {
+            "displayMode": "gradient",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "text": {}
+          },
+          "pluginVersion": "8.0.6",
+          "targets": [
+            {
+              "alias": "$tag_year",
+              "groupBy": [
+                {
+                  "params": [
+                    "year"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "activities",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)  GROUP BY \"year\"",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "distance"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": []
+            }
+          ],
+          "title": "Yearly Distances",
+          "type": "bargauge"
+        },
+        {
           "aliasColors": {
             "cumulative_sum_1": "super-light-blue"
           },
@@ -1649,10 +1823,10 @@
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 10,
-            "w": 21,
+            "h": 9,
+            "w": 24,
             "x": 0,
-            "y": 36
+            "y": 46
           },
           "hiddenSeries": false,
           "id": 3454562,
@@ -1672,7 +1846,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "8.0.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1777,90 +1951,6 @@
           }
         },
         {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "lengthm"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 10,
-            "w": 3,
-            "x": 21,
-            "y": 36
-          },
-          "id": 27897898,
-          "options": {
-            "displayMode": "gradient",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showUnfilled": true,
-            "text": {}
-          },
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "alias": "$tag_year",
-              "groupBy": [
-                {
-                  "params": [
-                    "year"
-                  ],
-                  "type": "tag"
-                }
-              ],
-              "measurement": "activities",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)  GROUP BY \"year\"",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "distance"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "title": "Yearly Distances",
-          "type": "bargauge"
-        },
-        {
           "config": {
             "animationDuration": 0,
             "cellPadding": "4",
@@ -1902,15 +1992,11 @@
             "verticalOrientation": false
           },
           "datasource": null,
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 46
+            "y": 55
           },
           "id": 24564560,
           "pluginVersion": "7.4.1",
@@ -1964,7 +2050,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 27,
+  "schemaVersion": 30,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1973,7 +2059,6 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "tags": [],
           "text": [
             "Ride",
             "EBikeRide",
@@ -2002,50 +2087,13 @@
         "label": "Activity Type",
         "multi": true,
         "name": "type",
-        "options": [
-          {
-            "selected": true,
-            "text": "Ride",
-            "value": "Ride"
-          },
-          {
-            "selected": true,
-            "text": "EBikeRide",
-            "value": "EBikeRide"
-          },
-          {
-            "selected": true,
-            "text": "Hike",
-            "value": "Hike"
-          },
-          {
-            "selected": true,
-            "text": "VirtualRide",
-            "value": "VirtualRide"
-          },
-          {
-            "selected": true,
-            "text": "Walk",
-            "value": "Walk"
-          },
-          {
-            "selected": true,
-            "text": "Run",
-            "value": "Run"
-          },
-          {
-            "selected": true,
-            "text": "Workout",
-            "value": "Workout"
-          }
-        ],
+        "options": [],
         "query": "select type from activities",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false

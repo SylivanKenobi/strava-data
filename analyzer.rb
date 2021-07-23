@@ -40,10 +40,11 @@ def send_activities(activities)
 end
 
 def send_segments(segments)
-  segments.each do |d|
+  segments.each_with_index do |d,i|
+    pr_time = d['pr_time'] || 0
     value = {
-      values: { name: d['name'], prtime: d['pr_time']},
-      timestamp: Time.now.to_i
+      values: { name: d['name'], prtime: pr_time},
+      timestamp: Time.now.to_i + i
     }
     $influxdb.write_point('segments', value)
   rescue => e
@@ -98,7 +99,6 @@ end
 
 def get_data_from_file
   data = File.read("assets/data.json")
-  pp JSON.parse(data).length
   JSON.parse(data)
 end
 
@@ -109,11 +109,11 @@ scheduler.cron '0 */1 * * *', :first_in => 0 do
   pp 'fetching new data'
   activities = get_data('athlete/activities',token)
   segments = get_data('segments/starred',token)
-  # data = get_data_from_file
+  # segments = get_data_from_file
   pp 'sending data to influx'
   send_activities(activities)
   send_segments(segments)
-  # write_to_file(data)
+  # write_to_file(segments)
   pp 'sent'
   pp 'see ya in an hour'
 end
