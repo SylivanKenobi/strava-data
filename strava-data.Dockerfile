@@ -1,8 +1,12 @@
-FROM ruby:2.7
+FROM ruby:2.7-slim
 
-RUN bundle config --global frozen 1 && \
+USER root
+
+RUN gem install bundler -v 2 && \
+    bundle config --global frozen 1 && \
     apt-get update && \
-    apt-get upgrade -yq
+    apt-get upgrade -yq && \
+    apt-get install build-essential -y
 
 COPY . .
 
