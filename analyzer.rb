@@ -43,7 +43,10 @@ def send_segments(segments)
   segments.each_with_index do |d,i|
     pr_time = d['pr_time'] || 0
     value = {
-      values: { name: d['name'], prtime: pr_time},
+      values: { prtime: pr_time},
+      tags: {
+        name: d['name']
+      },
       timestamp: Time.now.to_i + i
     }
     $influxdb.write_point('segments', value)
