@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1628613716558,
+  "iteration": 1629319675717,
   "links": [],
   "panels": [
     {
@@ -1841,8 +1841,8 @@
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 9,
-            "w": 24,
+            "h": 10,
+            "w": 16,
             "x": 0,
             "y": 54
           },
@@ -1969,6 +1969,109 @@
           }
         },
         {
+          "config": {
+            "animationDuration": 0,
+            "cellPadding": "4",
+            "cellRadius": "2",
+            "cellSize": "10",
+            "colLimit": "",
+            "displayLegend": true,
+            "domain": "month",
+            "domainGutter": 2,
+            "hoverDecimals": null,
+            "hoverUnitFormat": "lengthm",
+            "itemName": [
+              "lengthm",
+              "lengthm"
+            ],
+            "label": {
+              "position": "bottom",
+              "rotate": "null",
+              "width": 60
+            },
+            "legendColors": {
+              "base": "transparent",
+              "empty": "rgba(3, 3, 3, 0.18)",
+              "max": "rgb(13, 54, 6)",
+              "min": "#C8F2C2"
+            },
+            "legendStr": "",
+            "legendTitleFormat": {
+              "inner": {},
+              "lower": {},
+              "upper": {}
+            },
+            "rowLimit": "1",
+            "subDomain": "day",
+            "subDomainTitleFormat": {
+              "empty": "{date}",
+              "filled": {}
+            },
+            "verticalOrientation": true
+          },
+          "datasource": null,
+          "gridPos": {
+            "h": 19,
+            "w": 8,
+            "x": 16,
+            "y": 54
+          },
+          "id": 24564560,
+          "pluginVersion": "7.4.1",
+          "targets": [
+            {
+              "$$hashKey": "object:78",
+              "aggregation": "Last",
+              "alias": "",
+              "decimals": 2,
+              "displayAliasType": "Warning / Critical",
+              "displayType": "Regular",
+              "displayValueWithAlias": "Never",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "activities",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time(24h) fill(null)",
+              "rawQuery": true,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "distance"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "sum"
+                  }
+                ]
+              ],
+              "tags": [],
+              "units": "none",
+              "valueHandler": "Number Threshold"
+            }
+          ],
+          "timeFrom": null,
+          "title": "Activity Heatmap",
+          "type": "neocat-cal-heatmap-panel"
+        },
+        {
           "datasource": null,
           "fieldConfig": {
             "defaults": {
@@ -2022,10 +2125,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
-            "w": 24,
+            "h": 9,
+            "w": 16,
             "x": 0,
-            "y": 63
+            "y": 64
           },
           "id": 27897902,
           "options": {
@@ -2048,100 +2151,6 @@
           ],
           "title": "Panel Title",
           "type": "timeseries"
-        },
-        {
-          "config": {
-            "animationDuration": 0,
-            "cellPadding": "4",
-            "cellRadius": 0,
-            "cellSize": "16",
-            "colLimit": "",
-            "displayLegend": true,
-            "domain": "month",
-            "domainGutter": 2,
-            "hoverDecimals": 2,
-            "hoverUnitFormat": "short",
-            "itemName": [
-              "short",
-              "short"
-            ],
-            "label": {
-              "position": "bottom",
-              "rotate": "null",
-              "width": 60
-            },
-            "legendColors": {
-              "base": "transparent",
-              "empty": "#222",
-              "max": "rgb(13, 54, 6)",
-              "min": "rgb(152, 179, 146)"
-            },
-            "legendStr": "",
-            "legendTitleFormat": {
-              "inner": {},
-              "lower": {},
-              "upper": {}
-            },
-            "rowLimit": null,
-            "subDomain": "day",
-            "subDomainTitleFormat": {
-              "empty": "{date}",
-              "filled": {}
-            },
-            "verticalOrientation": false
-          },
-          "datasource": null,
-          "gridPos": {
-            "h": 7,
-            "w": 24,
-            "x": 0,
-            "y": 71
-          },
-          "id": 24564560,
-          "pluginVersion": "7.4.1",
-          "targets": [
-            {
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "activities",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "query": "SELECT sum(\"distance\") FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/) GROUP BY time(24h) fill(null)",
-              "rawQuery": true,
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "distance"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "sum"
-                  }
-                ]
-              ],
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "title": "Activity Heatmap",
-          "type": "neocat-cal-heatmap-panel"
         }
       ],
       "title": "Overall",
