@@ -13,6 +13,7 @@ services:
       INFLUXDB_USER: test
       INFLUXDB_USER_PASSWORD: test
       INFLUX_HOST: influx
+      GF_SECURITY_ADMIN_PASSWORD: password
     user: "472"
     links:
       - influx
@@ -24,4 +25,15 @@ services:
       INFLUXDB_DB: test
       INFLUXDB_USER: test
       INFLUXDB_USER_PASSWORD: test
-
+  # strava:
+  #   image: strava:local
+  #   environment:
+  #     DB_DATABASE: test
+  #     DB_USERNAME: test
+  #     DB_PW: test
+  #     DB_HOST: influx
+  #     LOG_PATH: /proc/1/fd/1
+  #   links:
+  #     - influx
+  #   volumes:
+  #     - "./assets/secrets.yml:/app-src/assets/secrets.yml"
