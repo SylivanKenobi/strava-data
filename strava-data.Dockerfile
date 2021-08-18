@@ -8,9 +8,14 @@ RUN gem install bundler -v 2 && \
     apt-get upgrade -yq && \
     apt-get install build-essential -y
 
-COPY . .
+WORKDIR app-src
+
+COPY Gemfile.lock .
+COPY Gemfile .
 
 RUN bundle install
+
+COPY . .
 
 USER 1001
 
