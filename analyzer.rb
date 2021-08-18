@@ -5,7 +5,10 @@ require 'rufus-scheduler'
 require 'net/http'
 require 'uri'
 require_relative 'lib/secrets'
+require 'logger'
 
+log_path = ENV['LOG_PATH'] || "/dev/stdout"
+logger = Logger.new(log_path)
 scheduler = Rufus::Scheduler.new
 
 $influxdb = InfluxDB::Client.new host: Secrets.get('DB_HOST'), database: Secrets.get('DB_DATABASE'), username: Secrets.get('DB_USERNAME'), password: Secrets.get('DB_PW')
@@ -35,7 +38,7 @@ def send_activities(activities)
     }
     $influxdb.write_point('activities', value)
   rescue => e
-    pp "#{e.message} #{value}"
+    logger.info("#{e.message} #{value}")
   end
 end
 
@@ -51,7 +54,7 @@ def send_segments(segments)
     }
     $influxdb.write_point('segments', value)
   rescue => e
-    pp "#{e.message} #{value}"
+    logger.info("#{e.message} #{value}")
   end
 end
 
@@ -106,19 +109,19 @@ def get_data_from_file
 end
 
 
-scheduler.cron '0 */1 * * *', :first_in => 0 do
-  pp 'fetching new token'
+scheduler.every '30m', :first_in => 0 do
+  logger.info('fetching new token')
   token = get_token
-  pp 'fetching new data'
+  logger.info('fetching new data')
   activities = get_data('athlete/activities',token)
   segments = get_data('segments/starred',token)
   # segments = get_data_from_file
-  pp 'sending data to influx'
+  logger.info('sending data to influx')
   send_activities(activities)
   send_segments(segments)
   # write_to_file(segments)
-  pp 'sent'
-  pp 'see ya in an hour'
+  logger.info('sent')
+  logger.info('see ya in 30 min')
 end
 
 scheduler.join
