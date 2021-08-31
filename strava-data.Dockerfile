@@ -1,12 +1,11 @@
-FROM ruby:2.7-slim
+FROM ruby:2.7-alpine
 
 USER root
 
 RUN gem install bundler -v 2 && \
     bundle config --global frozen 1 && \
-    apt-get update && \
-    apt-get upgrade -yq && \
-    apt-get install build-essential -y
+    apk update && \
+    apk upgrade && apk add --upgrade build-base
 
 WORKDIR app-src
 
