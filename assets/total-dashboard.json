@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1629319675717,
+  "iteration": 1634668526565,
   "links": [],
   "panels": [
     {
@@ -29,7 +29,7 @@
       },
       "id": 27897904,
       "panels": [],
-      "title": "Weeklys",
+      "title": "This Week",
       "type": "row"
     },
     {
@@ -64,7 +64,7 @@
         "x": 0,
         "y": 1
       },
-      "hideTimeOverride": false,
+      "hideTimeOverride": true,
       "id": 12123,
       "interval": null,
       "options": {
@@ -161,7 +161,7 @@
         "x": 6,
         "y": 1
       },
-      "hideTimeOverride": false,
+      "hideTimeOverride": true,
       "id": 423,
       "interval": null,
       "options": {
@@ -258,7 +258,7 @@
         "x": 12,
         "y": 1
       },
-      "hideTimeOverride": false,
+      "hideTimeOverride": true,
       "id": 16,
       "options": {
         "colorMode": "value",
@@ -352,6 +352,7 @@
         "x": 18,
         "y": 1
       },
+      "hideTimeOverride": true,
       "id": 27897896,
       "options": {
         "colorMode": "value",
@@ -411,7 +412,7 @@
       },
       "id": 262,
       "panels": [],
-      "title": "Yearlys",
+      "title": "This Year",
       "type": "row"
     },
     {
@@ -447,6 +448,7 @@
         "x": 0,
         "y": 7
       },
+      "hideTimeOverride": true,
       "id": 11231238,
       "options": {
         "displayMode": "lcd",
@@ -527,6 +529,7 @@
         "x": 0,
         "y": 9
       },
+      "hideTimeOverride": true,
       "id": 11231230,
       "options": {
         "colorMode": "value",
@@ -609,6 +612,7 @@
         "x": 6,
         "y": 9
       },
+      "hideTimeOverride": true,
       "id": 8123123,
       "options": {
         "colorMode": "value",
@@ -690,6 +694,7 @@
         "x": 12,
         "y": 9
       },
+      "hideTimeOverride": true,
       "id": 21231234,
       "options": {
         "colorMode": "value",
@@ -771,6 +776,7 @@
         "x": 18,
         "y": 9
       },
+      "hideTimeOverride": true,
       "id": 21231233,
       "options": {
         "colorMode": "value",
@@ -851,6 +857,7 @@
         "x": 0,
         "y": 14
       },
+      "hideTimeOverride": true,
       "id": 27897894,
       "options": {
         "displayMode": "gradient",
@@ -1008,6 +1015,7 @@
         "x": 0,
         "y": 21
       },
+      "hideTimeOverride": true,
       "id": 2123234,
       "options": {
         "graph": {},
