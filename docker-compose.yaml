@@ -2,8 +2,9 @@ version: '3'
 
 services:
   grafana:
-  # docker build . -f grafana.Dockerfile -t grafana:local
-    image: grafana:local
+    build:
+      context: .
+      dockerfile: grafana.Dockerfile
     container_name: grafana
     ports:
       - "3000:3000"

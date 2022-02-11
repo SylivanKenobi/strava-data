@@ -21,7 +21,7 @@ Datascraper and Visualizer for Strava with Ruby, Grafana and Influx.
     * DB_PW:
     * DB_USERNAME:
 * `$ bundle install`
-* `$ docker-compose up -d`
+* `$ docker-compose up -d --build`
 * `$ ruby analyzer.rb`
 * Visit Grafana on http://localhost:3000
 * Login user: admin, pw: password
