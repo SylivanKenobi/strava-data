@@ -6,6 +6,7 @@ require 'net/http'
 require 'uri'
 require_relative 'lib/secrets'
 require 'logger'
+# require 'pry'
 
 log_path = ENV['LOG_PATH'] || "/dev/stdout"
 logger = Logger.new(log_path)
@@ -73,6 +74,15 @@ def get_data(path, token)
   data
 end
 
+def uptodate(token)
+  url = "https://www.strava.com/api/v3/athlete/activities"
+  response = RestClient::Request.execute(
+      method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
+  )
+  json = JSON.parse(response.body)
+  !$influxdb.query('select * from activities where id =' + json[0]['id'].to_s).empty?
+end
+
 def get_token
   if token_expired?
     uri = URI.parse("https://www.strava.com/api/v3/oauth/token")
@@ -112,15 +122,21 @@ end
 scheduler.every '30m', :first_in => 0 do
   logger.info('fetching new token')
   token = get_token
-  logger.info('fetching new data')
-  activities = get_data('athlete/activities',token)
-  segments = get_data('segments/starred',token)
-  # segments = get_data_from_file
-  logger.info('sending data to influx')
-  send_activities(activities)
-  send_segments(segments)
-  # write_to_file(segments)
-  logger.info('sent')
+  logger.info('check if data is up to date')
+  unless uptodate(token)
+    logger.info('fetching new data')
+    activities = get_data('athlete/activities',token)
+    
+    segments = get_data('segments/starred',token)
+    # segments = get_data_from_file
+    logger.info('sending data to influx')
+    send_activities(activities)
+    send_segments(segments)
+    # write_to_file(segments)
+    logger.info('sent')
+  else
+    logger.info('data is up to date')
+  end
   logger.info('see ya in 30 min')
 end
 
