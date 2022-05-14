@@ -8,19 +8,25 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1634668526565,
+  "iteration": 1652554510542,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -33,7 +39,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -66,7 +71,6 @@
       },
       "hideTimeOverride": true,
       "id": 12123,
-      "interval": null,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -82,7 +86,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [
@@ -124,12 +128,10 @@
         }
       ],
       "timeFrom": "now/w",
-      "timeShift": null,
       "title": "No of activities",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -163,7 +165,6 @@
       },
       "hideTimeOverride": true,
       "id": 423,
-      "interval": null,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -179,7 +180,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [
@@ -221,12 +222,10 @@
         }
       ],
       "timeFrom": "now/w",
-      "timeShift": null,
       "title": "Distance",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -275,7 +274,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [
@@ -317,12 +316,10 @@
         }
       ],
       "timeFrom": "now/w",
-      "timeShift": null,
       "title": "Time",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -369,7 +366,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [],
@@ -403,7 +400,6 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -416,7 +412,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -463,7 +458,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [],
@@ -492,12 +487,10 @@
         }
       ],
       "timeFrom": "now/y",
-      "timeShift": null,
       "title": "Yeardistance",
       "type": "bargauge"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -546,7 +539,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [],
@@ -575,12 +568,10 @@
         }
       ],
       "timeFrom": "now/y",
-      "timeShift": null,
-      "title": "Longest Ride",
+      "title": "Longest Activity",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -629,7 +620,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [],
@@ -658,12 +649,10 @@
         }
       ],
       "timeFrom": "now/y",
-      "timeShift": null,
       "title": "Max Speed",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -711,7 +700,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [],
@@ -740,12 +729,10 @@
         }
       ],
       "timeFrom": "now/y",
-      "timeShift": null,
       "title": "Max Elevation",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -793,7 +780,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "groupBy": [],
@@ -822,12 +809,10 @@
         }
       ],
       "timeFrom": "now/y",
-      "timeShift": null,
       "title": "Max max Power",
       "type": "stat"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -872,7 +857,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.0.6",
+      "pluginVersion": "8.3.3",
       "targets": [
         {
           "alias": "$tag_type",
@@ -913,7 +898,6 @@
       "type": "bargauge"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1066,13 +1050,11 @@
         }
       ],
       "timeFrom": "now/y",
-      "timeShift": null,
-      "title": "Rides",
+      "title": "Activities",
       "type": "timeseries"
     },
     {
       "collapsed": true,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1082,7 +1064,6 @@
       "id": 27897892,
       "panels": [
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1126,7 +1107,7 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "groupBy": [],
@@ -1154,13 +1135,10 @@
               "tags": []
             }
           ],
-          "timeFrom": null,
-          "timeShift": null,
           "title": "Totaldistance",
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1208,7 +1186,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "groupBy": [],
@@ -1236,13 +1214,10 @@
               "tags": []
             }
           ],
-          "timeFrom": null,
-          "timeShift": null,
           "title": "Totaltime",
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1287,7 +1262,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "groupBy": [],
@@ -1313,7 +1288,6 @@
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1362,7 +1336,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "groupBy": [],
@@ -1390,13 +1364,10 @@
               "tags": []
             }
           ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Longest Ride",
+          "title": "Longest Activity",
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1444,7 +1415,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "groupBy": [
@@ -1485,13 +1456,10 @@
               "tags": []
             }
           ],
-          "timeFrom": null,
-          "timeShift": null,
           "title": "Max Elevation",
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1541,9 +1509,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [],
               "measurement": "activities",
               "orderByTime": "ASC",
@@ -1569,13 +1541,10 @@
               "tags": []
             }
           ],
-          "timeFrom": null,
-          "timeShift": null,
           "title": "Max Speed",
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1621,7 +1590,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "groupBy": [],
@@ -1647,7 +1616,6 @@
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1684,7 +1652,7 @@
             "text": {},
             "textMode": "value_and_name"
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "alias": "$tag_name",
@@ -1736,7 +1704,6 @@
           "type": "stat"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1780,7 +1747,7 @@
             "showUnfilled": true,
             "text": {}
           },
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "targets": [
             {
               "alias": "$tag_year",
@@ -1826,7 +1793,6 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "unit": "lengthm"
@@ -1872,7 +1838,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.0.6",
+          "pluginVersion": "8.3.3",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -1936,9 +1902,7 @@
             }
           ],
           "thresholds": [],
-          "timeFrom": null,
           "timeRegions": [],
-          "timeShift": null,
           "title": "Yearly Distance Progress",
           "tooltip": {
             "shared": true,
@@ -1947,33 +1911,24 @@
           },
           "type": "graph",
           "xaxis": {
-            "buckets": null,
             "mode": "time",
-            "name": null,
             "show": true,
             "values": []
           },
           "yaxes": [
             {
               "format": "lengthm",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             },
             {
               "format": "lengthm",
-              "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
               "show": true
             }
           ],
           "yaxis": {
-            "align": false,
-            "alignLevel": null
+            "align": false
           }
         },
         {
@@ -1986,7 +1941,6 @@
             "displayLegend": true,
             "domain": "month",
             "domainGutter": 2,
-            "hoverDecimals": null,
             "hoverUnitFormat": "lengthm",
             "itemName": [
               "lengthm",
@@ -2017,7 +1971,6 @@
             },
             "verticalOrientation": true
           },
-          "datasource": null,
           "gridPos": {
             "h": 19,
             "w": 8,
@@ -2075,12 +2028,10 @@
               "valueHandler": "Number Threshold"
             }
           ],
-          "timeFrom": null,
           "title": "Activity Heatmap",
           "type": "neocat-cal-heatmap-panel"
         },
         {
-          "datasource": null,
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2157,7 +2108,7 @@
               "refId": "A"
             }
           ],
-          "title": "Panel Title",
+          "title": "Yearly Duration Progress",
           "type": "timeseries"
         }
       ],
@@ -2166,13 +2117,12 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 30,
+  "schemaVersion": 34,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
           "selected": true,
           "text": [
@@ -2194,10 +2144,7 @@
             "Workout"
           ]
         },
-        "datasource": null,
         "definition": "select type from activities",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Activity Type",
@@ -2217,12 +2164,13 @@
     ]
   },
   "time": {
-    "from": "now/y -5y",
+    "from": "now/y -6y",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Strava Dashboard",
   "uid": "strava",
-  "version": 1
+  "version": 1,
+  "weekStart": ""
 }
