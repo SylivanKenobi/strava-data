@@ -21,7 +21,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1652554510542,
+  "iteration": 1656532384948,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -32,6 +32,450 @@
         "w": 24,
         "x": 0,
         "y": 0
+      },
+      "id": 27897906,
+      "panels": [],
+      "title": "England",
+      "type": "row"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 7,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "lengthm"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.cumulative_sum {year: 2022}"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.cumulative_sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.elevation"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#F2CC0C",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "hideTimeOverride": false,
+      "id": 27897908,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT cumulative_sum(\"distance\") as distance FROM \"activities\" WHERE time >= 1656453600000ms and time <= 1660687200000ms  AND (type =~ /^${type}$/) ",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": "42d",
+      "title": "Distance",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 7,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "lengthm"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.cumulative_sum {year: 2022}"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.cumulative_sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.elevation"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#F2CC0C",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "hideTimeOverride": false,
+      "id": 27897909,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "activities",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT cumulative_sum(\"elevation\") as elevation FROM \"activities\" WHERE time >= 1656453600000ms and time <= 1660687200000ms  AND (type =~ /^${type}$/) ",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "distance"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": "42d",
+      "title": "Elevation",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 17,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "activities.elevation"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 27897911,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
+          "query": "SELECT cumulative_sum(\"duration\") as elevation FROM \"activities\" WHERE time >= 1656453600000ms and time <= 1660687200000ms  AND (type =~ /^${type}$/) ",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "timeFrom": "45d",
+      "title": "Duration",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
       },
       "id": 27897904,
       "panels": [],
@@ -67,7 +511,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 1
+        "y": 11
       },
       "hideTimeOverride": true,
       "id": 12123,
@@ -161,7 +605,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 1
+        "y": 11
       },
       "hideTimeOverride": true,
       "id": 423,
@@ -255,7 +699,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 1
+        "y": 11
       },
       "hideTimeOverride": true,
       "id": 16,
@@ -347,7 +791,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 1
+        "y": 11
       },
       "hideTimeOverride": true,
       "id": 27897896,
@@ -404,7 +848,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 16
       },
       "id": 262,
       "panels": [],
@@ -441,7 +885,7 @@
         "h": 2,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 17
       },
       "hideTimeOverride": true,
       "id": 11231238,
@@ -520,7 +964,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 9
+        "y": 19
       },
       "hideTimeOverride": true,
       "id": 11231230,
@@ -601,7 +1045,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 9
+        "y": 19
       },
       "hideTimeOverride": true,
       "id": 8123123,
@@ -681,7 +1125,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 9
+        "y": 19
       },
       "hideTimeOverride": true,
       "id": 21231234,
@@ -761,7 +1205,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 9
+        "y": 19
       },
       "hideTimeOverride": true,
       "id": 21231233,
@@ -840,7 +1284,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 24
       },
       "hideTimeOverride": true,
       "id": 27897894,
@@ -997,7 +1441,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 31
       },
       "hideTimeOverride": true,
       "id": 2123234,
@@ -1059,7 +1503,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 43
       },
       "id": 27897892,
       "panels": [
@@ -1089,7 +1533,7 @@
             "h": 5,
             "w": 8,
             "x": 0,
-            "y": 34
+            "y": 35
           },
           "id": 18567,
           "options": {
@@ -1168,7 +1612,7 @@
             "h": 5,
             "w": 8,
             "x": 8,
-            "y": 34
+            "y": 35
           },
           "id": 16786786,
           "options": {
@@ -1244,7 +1688,7 @@
             "h": 5,
             "w": 8,
             "x": 16,
-            "y": 34
+            "y": 35
           },
           "id": 27897890,
           "options": {
@@ -1318,7 +1762,7 @@
             "h": 5,
             "w": 6,
             "x": 0,
-            "y": 39
+            "y": 40
           },
           "id": 14564560,
           "options": {
@@ -1397,7 +1841,7 @@
             "h": 5,
             "w": 6,
             "x": 6,
-            "y": 39
+            "y": 40
           },
           "id": 4567567,
           "options": {
@@ -1490,7 +1934,7 @@
             "h": 5,
             "w": 6,
             "x": 12,
-            "y": 39
+            "y": 40
           },
           "id": 6786788,
           "options": {
@@ -1572,7 +2016,7 @@
             "h": 5,
             "w": 6,
             "x": 18,
-            "y": 39
+            "y": 40
           },
           "id": 27897900,
           "options": {
@@ -1634,7 +2078,7 @@
             "h": 10,
             "w": 12,
             "x": 0,
-            "y": 44
+            "y": 45
           },
           "id": 24234,
           "options": {
@@ -1731,7 +2175,7 @@
             "h": 10,
             "w": 12,
             "x": 12,
-            "y": 44
+            "y": 45
           },
           "id": 27897898,
           "options": {
@@ -1818,7 +2262,7 @@
             "h": 10,
             "w": 16,
             "x": 0,
-            "y": 54
+            "y": 55
           },
           "hiddenSeries": false,
           "id": 3454562,
@@ -1975,7 +2419,7 @@
             "h": 19,
             "w": 8,
             "x": 16,
-            "y": 54
+            "y": 55
           },
           "id": 24564560,
           "pluginVersion": "7.4.1",
@@ -2087,7 +2531,7 @@
             "h": 9,
             "w": 16,
             "x": 0,
-            "y": 64
+            "y": 65
           },
           "id": 27897902,
           "options": {
