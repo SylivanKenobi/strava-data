@@ -1,4 +1,4 @@
-FROM grafana/grafana:8.3.3
+FROM grafana/grafana:9.3.2
 
 COPY assets/dashboards.yaml /etc/grafana/provisioning/dashboards/
 COPY assets/datasources.yaml /etc/grafana/provisioning/datasources/

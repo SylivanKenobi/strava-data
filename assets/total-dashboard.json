@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,468 +24,41 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "iteration": 1656532384948,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "collapsed": false,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 27897906,
-      "panels": [],
-      "title": "England",
-      "type": "row"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 7,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "lengthm"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.cumulative_sum {year: 2022}"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.cumulative_sum"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.elevation"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#F2CC0C",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 0,
-        "y": 1
-      },
-      "hideTimeOverride": false,
-      "id": 27897908,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single"
-        }
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P3C6603E967DC8568"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "activities",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT cumulative_sum(\"distance\") as distance FROM \"activities\" WHERE time >= 1656453600000ms and time <= 1660687200000ms  AND (type =~ /^${type}$/) ",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "distance"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": "42d",
-      "title": "Distance",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 7,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "lengthm"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.cumulative_sum {year: 2022}"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.cumulative_sum"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.elevation"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "#F2CC0C",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
-        "y": 1
-      },
-      "hideTimeOverride": false,
-      "id": 27897909,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single"
-        }
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P3C6603E967DC8568"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "activities",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT cumulative_sum(\"elevation\") as elevation FROM \"activities\" WHERE time >= 1656453600000ms and time <= 1660687200000ms  AND (type =~ /^${type}$/) ",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "distance"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "timeFrom": "42d",
-      "title": "Elevation",
-      "type": "timeseries"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 17,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "s"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "activities.elevation"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
-        "y": 1
-      },
-      "id": 27897911,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P3C6603E967DC8568"
-          },
-          "query": "SELECT cumulative_sum(\"duration\") as elevation FROM \"activities\" WHERE time >= 1656453600000ms and time <= 1660687200000ms  AND (type =~ /^${type}$/) ",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series"
-        }
-      ],
-      "timeFrom": "45d",
-      "title": "Duration",
-      "type": "timeseries"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 10
-      },
       "id": 27897904,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "This Week",
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -511,7 +87,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 11
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 12123,
@@ -530,9 +106,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [
             {
               "params": [
@@ -576,6 +156,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -605,7 +189,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 11
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 423,
@@ -624,9 +208,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [
             {
               "params": [
@@ -670,6 +258,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -699,7 +291,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 11
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 16,
@@ -718,9 +310,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [
             {
               "params": [
@@ -764,6 +360,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -791,7 +391,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 11
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 27897896,
@@ -810,9 +410,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -844,18 +448,35 @@
     },
     {
       "collapsed": false,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 6
       },
       "id": 262,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "This Year",
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -885,12 +506,14 @@
         "h": 2,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 7
       },
       "hideTimeOverride": true,
       "id": 11231238,
       "options": {
         "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -902,9 +525,13 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -935,6 +562,10 @@
       "type": "bargauge"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -964,7 +595,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 19
+        "y": 9
       },
       "hideTimeOverride": true,
       "id": 11231230,
@@ -983,9 +614,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -1016,6 +651,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1045,7 +684,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 19
+        "y": 9
       },
       "hideTimeOverride": true,
       "id": 8123123,
@@ -1064,9 +703,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -1097,6 +740,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1125,7 +772,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 19
+        "y": 9
       },
       "hideTimeOverride": true,
       "id": 21231234,
@@ -1144,9 +791,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -1177,6 +828,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1205,7 +860,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 19
+        "y": 9
       },
       "hideTimeOverride": true,
       "id": 21231233,
@@ -1224,9 +879,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -1257,6 +916,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1284,12 +947,14 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 14
       },
       "hideTimeOverride": true,
       "id": 27897894,
       "options": {
         "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -1301,10 +966,14 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "alias": "$tag_type",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [
             {
               "params": [
@@ -1342,12 +1011,18 @@
       "type": "bargauge"
     },
     {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -1441,7 +1116,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 21
       },
       "hideTimeOverride": true,
       "id": 2123234,
@@ -1455,15 +1130,21 @@
             "sum"
           ],
           "displayMode": "table",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "7.5.2",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "groupBy": [],
           "measurement": "activities",
           "orderByTime": "ASC",
@@ -1499,15 +1180,23 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P3C6603E967DC8568"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 43
+        "y": 33
       },
       "id": 27897892,
       "panels": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1533,7 +1222,7 @@
             "h": 5,
             "w": 8,
             "x": 0,
-            "y": 35
+            "y": 34
           },
           "id": 18567,
           "options": {
@@ -1551,9 +1240,13 @@
             "text": {},
             "textMode": "value"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [],
               "measurement": "activities",
               "orderByTime": "ASC",
@@ -1583,6 +1276,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1612,7 +1309,7 @@
             "h": 5,
             "w": 8,
             "x": 8,
-            "y": 35
+            "y": 34
           },
           "id": 16786786,
           "options": {
@@ -1630,9 +1327,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [],
               "measurement": "activities",
               "orderByTime": "ASC",
@@ -1662,6 +1363,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1688,7 +1393,7 @@
             "h": 5,
             "w": 8,
             "x": 16,
-            "y": 35
+            "y": 34
           },
           "id": 27897890,
           "options": {
@@ -1706,9 +1411,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [],
               "measurement": "activities",
               "orderByTime": "ASC",
@@ -1732,6 +1441,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1762,7 +1475,7 @@
             "h": 5,
             "w": 6,
             "x": 0,
-            "y": 40
+            "y": 39
           },
           "id": 14564560,
           "options": {
@@ -1780,9 +1493,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [],
               "measurement": "activities",
               "orderByTime": "ASC",
@@ -1812,6 +1529,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1841,7 +1562,7 @@
             "h": 5,
             "w": 6,
             "x": 6,
-            "y": 40
+            "y": 39
           },
           "id": 4567567,
           "options": {
@@ -1859,9 +1580,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -1904,6 +1629,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1934,7 +1663,7 @@
             "h": 5,
             "w": 6,
             "x": 12,
-            "y": 40
+            "y": 39
           },
           "id": 6786788,
           "options": {
@@ -1953,7 +1682,7 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
               "datasource": {
@@ -1989,6 +1718,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2016,7 +1749,7 @@
             "h": 5,
             "w": 6,
             "x": 18,
-            "y": 40
+            "y": 39
           },
           "id": 27897900,
           "options": {
@@ -2034,9 +1767,13 @@
             "text": {},
             "textMode": "auto"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [],
               "measurement": "activities",
               "orderByTime": "ASC",
@@ -2060,6 +1797,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2078,7 +1819,7 @@
             "h": 10,
             "w": 12,
             "x": 0,
-            "y": 45
+            "y": 44
           },
           "id": 24234,
           "options": {
@@ -2096,10 +1837,14 @@
             "text": {},
             "textMode": "value_and_name"
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
               "alias": "$tag_name",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2148,6 +1893,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2175,11 +1924,13 @@
             "h": 10,
             "w": 12,
             "x": 12,
-            "y": 45
+            "y": 44
           },
           "id": 27897898,
           "options": {
             "displayMode": "gradient",
+            "minVizHeight": 10,
+            "minVizWidth": 0,
             "orientation": "auto",
             "reduceOptions": {
               "calcs": [
@@ -2191,10 +1942,14 @@
             "showUnfilled": true,
             "text": {}
           },
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "targets": [
             {
               "alias": "$tag_year",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2237,6 +1992,10 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "unit": "lengthm"
@@ -2262,7 +2021,7 @@
             "h": 10,
             "w": 16,
             "x": 0,
-            "y": 55
+            "y": 54
           },
           "hiddenSeries": false,
           "id": 3454562,
@@ -2282,7 +2041,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "8.3.3",
+          "pluginVersion": "9.3.2",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -2301,6 +2060,10 @@
           "steppedLine": false,
           "targets": [
             {
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "groupBy": [
                 {
                   "params": [
@@ -2415,11 +2178,15 @@
             },
             "verticalOrientation": true
           },
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "gridPos": {
             "h": 19,
             "w": 8,
             "x": 16,
-            "y": 55
+            "y": 54
           },
           "id": 24564560,
           "pluginVersion": "7.4.1",
@@ -2428,6 +2195,10 @@
               "$$hashKey": "object:78",
               "aggregation": "Last",
               "alias": "",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "decimals": 2,
               "displayAliasType": "Warning / Critical",
               "displayType": "Regular",
@@ -2476,12 +2247,18 @@
           "type": "neocat-cal-heatmap-panel"
         },
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -2531,22 +2308,28 @@
             "h": 9,
             "w": 16,
             "x": 0,
-            "y": 65
+            "y": 64
           },
           "id": 27897902,
           "options": {
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "alias": "$tag_year",
+              "datasource": {
+                "type": "influxdb",
+                "uid": "P3C6603E967DC8568"
+              },
               "query": "SELECT cumulative_sum(\"duration\") as \"duration\" FROM \"activities\" WHERE $timeFilter AND (type =~ /^${type}$/)  GROUP BY \"year\"",
               "rawQuery": true,
               "refId": "A"
@@ -2556,12 +2339,21 @@
           "type": "timeseries"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P3C6603E967DC8568"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Overall",
       "type": "row"
     }
   ],
   "refresh": false,
-  "schemaVersion": 34,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2570,27 +2362,19 @@
         "current": {
           "selected": true,
           "text": [
-            "Ride",
-            "EBikeRide",
-            "Hike",
-            "VirtualRide",
-            "Walk",
-            "Run",
-            "Workout"
+            "All"
           ],
           "value": [
-            "Ride",
-            "EBikeRide",
-            "Hike",
-            "VirtualRide",
-            "Walk",
-            "Run",
-            "Workout"
+            "$__all"
           ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P3C6603E967DC8568"
         },
         "definition": "select type from activities",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "Activity Type",
         "multi": true,
         "name": "type",
@@ -2608,7 +2392,7 @@
     ]
   },
   "time": {
-    "from": "now/y -6y",
+    "from": "now/y -7y",
     "to": "now"
   },
   "timepicker": {},
