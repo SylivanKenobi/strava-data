@@ -13,13 +13,18 @@ logger = Logger.new(log_path)
 scheduler = Rufus::Scheduler.new
 
 $influxdb = InfluxDB::Client.new host: Secrets.get('DB_HOST'), database: Secrets.get('DB_DATABASE'), username: Secrets.get('DB_USERNAME'), password: Secrets.get('DB_PW')
-$influxdb.delete_database('test')
-$influxdb.create_database('test')
+# $influxdb.delete_database('test')
+# $influxdb.create_database('test')
 
 def send_activities(activities)
   activities.each do |d|
+    # if d['has_heartrate']
+    #   response = request("/activities/#{d["id"]}/zones", get_token, 0)
+    #   data = JSON.parse(response.body)
+    #   binding.pry
+    # end
     value = {
-      values: { 
+      values: {
         id: d['id'],
         type: d['type'],
         distance: d['distance'].to_f,
@@ -29,7 +34,10 @@ def send_activities(activities)
         elevation: d['total_elevation_gain'].to_f,
         max_watts: d['max_watts'].to_f,
         average_watts: d['average_watts'].to_f,
-        weighted_average_watts: d['weighted_average_watts'].to_f
+        weighted_average_watts: d['weighted_average_watts'].to_f,
+        kudos_count: d['kudos_count'].to_i,
+        kilojoules: d['kilojoules'].to_f,
+        has_heartrate: d['has_heartrate']
       },
       tags: {
         year: DateTime.iso8601(d['start_date_local']).year,
@@ -59,15 +67,19 @@ def send_segments(segments)
   end
 end
 
-def get_data(path, token)
+def request(path, token)
+  url = "https://www.strava.com/api/v3/#{path}"
+  response = RestClient::Request.execute(
+      method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
+  )
+end
+
+def get_paged_data(path, token)
   data = []
   i = 0
   loop do
     i += 1
-    url = "https://www.strava.com/api/v3/#{path}?page=#{i}&per_page=200"
-    response = RestClient::Request.execute(
-        method: :get, url: url, headers: { Authorization: "Bearer #{token}" }
-    )
+    response = request("#{path}?page=#{i}&per_page=200", token)
     break if JSON.parse(response.body).nil? || JSON.parse(response.body).empty?
     data = data + JSON.parse(response.body)
   end
@@ -118,26 +130,61 @@ def get_data_from_file
   JSON.parse(data)
 end
 
-
 scheduler.every '30m', :first_in => 0 do
   logger.info('fetching new token')
   token = get_token
   logger.info('check if data is up to date')
   unless uptodate(token)
     logger.info('fetching new data')
-    activities = get_data('athlete/activities',token)
+    activities = get_paged_data('activities',token)
     
-    segments = get_data('segments/starred',token)
+    # segments = get_paged_data('segments/starred',token)
     # segments = get_data_from_file
     logger.info('sending data to influx')
     send_activities(activities)
-    send_segments(segments)
-    # write_to_file(segments)
+    # send_segments(segments)
+    write_to_file(activities)
     logger.info('sent')
   else
     logger.info('data is up to date')
   end
   logger.info('see ya in 30 min')
+  $influxdb.query('select id from activities where has_heartrate = true') do | name,tags,ids|
+    i = 0 
+    ids.each do |id|
+      response = request("activities/#{id['id']}/zones", token)
+      json= JSON.parse(response.body)
+      index = json.find_index { |obj| obj["type"] == "heartrate" }
+      heartrate = json[index]
+      value = {
+        values: {
+          id: id['id'],
+          zone_1_min: heartrate['distribution_buckets'][0]['min'],
+          zone_1_max: heartrate['distribution_buckets'][0]['max'],
+          zone_1_time: heartrate['distribution_buckets'][0]['time'],
+          zone_2_min: heartrate['distribution_buckets'][1]['min'],
+          zone_2_max: heartrate['distribution_buckets'][1]['max'],
+          zone_2_time: heartrate['distribution_buckets'][1]['time'],
+          zone_3_min: heartrate['distribution_buckets'][2]['min'],
+          zone_3_max: heartrate['distribution_buckets'][2]['max'],
+          zone_3_time: heartrate['distribution_buckets'][2]['time'],
+          zone_4_min: heartrate['distribution_buckets'][3]['min'],
+          zone_4_max: heartrate['distribution_buckets'][3]['max'],
+          zone_4_time: heartrate['distribution_buckets'][3]['time'],
+          zone_5_min: heartrate['distribution_buckets'][4]['min'],
+          zone_5_max: heartrate['distribution_buckets'][4]['max'],
+          zone_5_time: heartrate['distribution_buckets'][4]['time'],
+        },
+        timestamp: Time.now.to_i + i
+      }
+      i += 1
+      $influxdb.write_point('heartrate', value)
+    end
+  end
 end
+
+# scheduler.every '30m', :first_in => 15m do
+  
+# end
 
 scheduler.join
